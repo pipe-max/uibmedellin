@@ -24,8 +24,7 @@
       --border:      rgba(26, 42, 94, 0.12);
     }
 
-    html { scroll-behavior: smooth; height: auto; }
-    body { height: auto; background: #d4ebf6; }
+    html { scroll-behavior: smooth; }
 
     /* ── TALLIT STRIPE — top of page ── */
     body::before {
@@ -48,7 +47,7 @@
 
     body {
       font-family: 'Open Sans', sans-serif;
-      
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       color: var(--navy);
@@ -56,7 +55,7 @@
 
     /* ── BACKGROUND ── */
     .main {
-      
+      flex: 1;
       position: relative;
       overflow: hidden;
       padding-bottom: 16px;

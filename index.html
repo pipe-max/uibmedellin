@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Unión Israelita de Beneficencia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:        #1a2a5e;
+      --navy-dark:   #111d42;
+      --navy-light:  #253571;
+      --sky-blue:    #4ab3e8;
+      --sky-mid:     #2196c4;
+      --gold:        #c9a84c;
+      --gold-light:  #e0c070;
+      --orchid:      #8b5fa8;
+      --orchid-soft: rgba(139, 95, 168, 0.12);
+      --white:       #ffffff;
+      --off-white:   #f7f9fc;
+      --text-muted:  #5a6a8a;
+      --border:      rgba(26, 42, 94, 0.12);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    /* ── TALLIT STRIPE — top of page ── */
+    body::before {
+      content: '';
+      display: block;
+      height: 6px;
+      background: linear-gradient(to right,
+        var(--navy) 0%,
+        var(--navy) 30%,
+        var(--sky-blue) 30%,
+        var(--sky-blue) 35%,
+        var(--navy) 35%,
+        var(--navy) 65%,
+        var(--sky-blue) 65%,
+        var(--sky-blue) 70%,
+        var(--navy) 70%,
+        var(--navy) 100%
+      );
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      color: var(--navy);
+    }
+
+    /* ── BACKGROUND ── */
+    .main {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+      padding-bottom: 100px;
+      background:
+        radial-gradient(ellipse 80% 50% at 15% 20%, rgba(186, 224, 244, 0.50) 0%, transparent 65%),
+        radial-gradient(ellipse 60% 40% at 85% 10%, rgba(210, 236, 250, 0.40) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 40% at 90% 80%, rgba(231, 216, 245, 0.22) 0%, transparent 55%),
+        radial-gradient(ellipse 70% 45% at 60% 75%, rgba(220, 240, 252, 0.30) 0%, transparent 60%),
+        linear-gradient(170deg, #d4ebf6 0%, #e9f5fb 30%, #f3f9fd 60%, #f9fcfe 100%);
+    }
+
+    .main-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── HEADER / LOGO BLOCK ── */
+    .logo-wrap {
+      display: flex;
+      justify-content: center;
+      padding: 64px 24px 56px;
+    }
+
+    .logo-inner {
+      padding: 0;
+    }
+
+    .logo-img {
+      display: block;
+      height: 160px;
+      width: auto;
+      max-width: 100%;
+      filter: drop-shadow(0 4px 16px rgba(26, 42, 94, 0.18));
+    }
+
+    /* ── CONTENT CARD ── */
+    .content-wrap {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .content-card {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      border-radius: 4px;
+      box-shadow:
+        0 8px 40px rgba(26, 42, 94, 0.10),
+        0 2px 8px rgba(26, 42, 94, 0.06);
+      overflow: hidden;
+    }
+
+    .card-header {
+      padding: 22px 32px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .card-header-accent {
+      display: block;
+      width: 3px;
+      height: 32px;
+      background: linear-gradient(to bottom, var(--sky-blue), var(--orchid));
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    .registro-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--orchid);
+      margin-bottom: 3px;
+    }
+
+    .registro-title {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 700;
+      font-size: 0.88rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--navy-dark);
+      line-height: 1.3;
+    }
+
+    /* ── DOC LIST ── */
+    .registro-list {
+      list-style: none;
+      padding: 8px 0;
+    }
+
+    .registro-list li {
+      border-bottom: 1px solid rgba(26, 42, 94, 0.06);
+    }
+
+    .registro-list li:last-child {
+      border-bottom: none;
+    }
+
+    .registro-list a {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 32px;
+      color: var(--navy);
+      font-size: 0.875rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.18s ease, color 0.18s ease, padding-left 0.18s ease;
+      cursor: pointer;
+      line-height: 1.45;
+    }
+
+    .registro-list a:hover {
+      background: rgba(74, 179, 232, 0.06);
+      color: var(--sky-mid);
+      padding-left: 36px;
+    }
+
+    .doc-icon {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      background: rgba(26, 42, 94, 0.06);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.18s ease;
+    }
+
+    .registro-list a:hover .doc-icon {
+      background: rgba(74, 179, 232, 0.12);
+    }
+
+    .doc-icon svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--navy);
+      transition: stroke 0.18s ease;
+    }
+
+    .registro-list a:hover .doc-icon svg {
+      stroke: var(--sky-mid);
+    }
+
+    .doc-arrow {
+      margin-left: auto;
+      flex-shrink: 0;
+      opacity: 0;
+      transform: translateX(-6px);
+      transition: opacity 0.18s ease, transform 0.18s ease;
+    }
+
+    .registro-list a:hover .doc-arrow {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy-dark);
+      color: var(--white);
+      padding: 52px 24px 32px;
+    }
+
+    .footer-inner {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: none;
+    }
+
+    .footer-logo-img {
+      display: block;
+      height: 120px;
+      width: auto;
+      max-width: 100%;
+    }
+
+    .footer-main {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+      margin-bottom: 24px;
+    }
+
+    .footer-main-sep {
+      width: 1px;
+      height: 80px;
+      background: rgba(255,255,255,0.12);
+      flex-shrink: 0;
+    }
+
+    .footer-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-contact-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-contact-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 6px;
+      flex-shrink: 0;
+    }
+
+    .footer-contact-icon svg {
+      width: 14px;
+      height: 14px;
+      stroke: var(--sky-blue);
+      stroke-width: 2;
+      fill: none;
+    }
+
+    .footer-contact-value {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1;
+    }
+
+    .footer-contact-value strong {
+      font-weight: 600;
+      color: rgba(255,255,255,0.92);
+      font-size: 0.9rem;
+    }
+
+    .footer-bottom {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.10);
+    }
+
+    .footer-copy {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.30);
+      letter-spacing: 0.04em;
+    }
+
+    .footer-policy a {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      padding-bottom: 1px;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .footer-policy a:hover {
+      color: var(--sky-blue);
+      border-color: var(--sky-blue);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 540px) {
+      .logo-img { height: 110px; }
+      .card-header { padding: 18px 20px 16px; }
+      .registro-list a { padding: 14px 20px; }
+      .registro-list a:hover { padding-left: 24px; }
+      .footer-main { flex-direction: column; align-items: center; gap: 24px; }
+      .footer-main-sep { width: 60px; height: 1px; }
+      .footer-contact { align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══ MAIN ══ -->
+  <main class="main">
+
+    <div class="main-content">
+
+      <!-- Logo -->
+      <div class="logo-wrap">
+        <div class="logo-inner">
+          <img
+            class="logo-img"
+            src="logo-uib-color.png"
+            alt="Unión Israelita de Beneficencia"
+          />
+        </div>
+      </div>
+
+      <!-- Content Card -->
+      <div class="content-wrap">
+        <div class="content-card">
+          <div class="card-header">
+            <span class="card-header-accent"></span>
+            <div class="card-header-text">
+              <div class="registro-label">Transparencia Fiscal</div>
+              <div class="registro-title">Registro Web — Entidades Régimen Especial</div>
+            </div>
+          </div>
+
+          <ul class="registro-list">
+            <li>
+              <a href="#">
+                <span class="doc-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                    <line x1="16" y1="13" x2="8" y2="13"/>
+                    <line x1="16" y1="17" x2="8" y2="17"/>
+                    <polyline points="10 9 9 9 8 9"/>
+                  </svg>
+                </span>
+                Art. 364-5 – Estatuto Tributario
+                <svg class="doc-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="doc-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                    <line x1="16" y1="13" x2="8" y2="13"/>
+                    <line x1="16" y1="17" x2="8" y2="17"/>
+                    <polyline points="10 9 9 9 8 9"/>
+                  </svg>
+                </span>
+                Informe Anual de Resultados
+                <svg class="doc-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="doc-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                    <line x1="8" y1="21" x2="16" y2="21"/>
+                    <line x1="12" y1="17" x2="12" y2="21"/>
+                  </svg>
+                </span>
+                Estados Financieros
+                <svg class="doc-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span class="doc-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                    <polyline points="22 4 12 14.01 9 11.01"/>
+                  </svg>
+                </span>
+                Certificado del representante legal o revisor fiscal del cumplimiento de los requisitos para ser régimen tributario especial
+                <svg class="doc-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <div class="footer-inner">
+
+      <div class="footer-main">
+        <img
+          src="logo-uib-blanco.png"
+          alt="Unión Israelita de Beneficencia"
+          class="footer-logo-img"
+        />
+
+        <div class="footer-main-sep"></div>
+
+        <div class="footer-contact">
+          <div class="footer-contact-row">
+            <div class="footer-contact-icon">
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.39 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.06 6.06l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+            </div>
+            <div class="footer-contact-value">
+              <strong>Info (+57) 6045609754</strong>
+            </div>
+          </div>
+
+          <div class="footer-contact-row">
+            <div class="footer-contact-icon">
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </div>
+            <div class="footer-contact-value">info@uibmedellin.org</div>
+          </div>
+
+          <div class="footer-contact-row">
+            <div class="footer-contact-icon">
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <div class="footer-contact-value">Avenida el Poblado, Medellín, Colombia</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span class="footer-copy">© 2026 Unión Israelita de Beneficencia</span>
+        <div class="footer-policy">
+          <a href="#">Política de Protección de Datos</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>

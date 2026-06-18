@@ -344,9 +344,220 @@
       .footer-main-sep { width: 60px; height: 1px; }
       .footer-contact { align-items: center; }
     }
+
+    /* ════════════════════════════════════════
+       MANTENIMIENTO — overlay a pantalla completa
+       Para desactivar: eliminar este bloque y
+       el div#maintenance-overlay del <body>
+    ════════════════════════════════════════ */
+    #maintenance-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 24px;
+      gap: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 15% 20%, rgba(186,224,244,.50) 0%, transparent 65%),
+        radial-gradient(ellipse 60% 40% at 85% 10%, rgba(210,236,250,.40) 0%, transparent 55%),
+        linear-gradient(170deg, #d4ebf6 0%, #e9f5fb 35%, #f3f9fd 65%, #f9fcfe 100%);
+      font-family: 'Open Sans', sans-serif;
+      color: #1a2a5e;
+      overflow-y: auto;
+    }
+    #maintenance-overlay::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 6px;
+      background: linear-gradient(to right,
+        #1a2a5e 0%,   #1a2a5e 30%,
+        #4ab3e8 30%,  #4ab3e8 35%,
+        #1a2a5e 35%,  #1a2a5e 65%,
+        #4ab3e8 65%,  #4ab3e8 70%,
+        #1a2a5e 70%,  #1a2a5e 100%
+      );
+      z-index: 10000;
+    }
+    .mnt-star {
+      margin-bottom: 28px;
+      opacity: .16;
+      animation: mnt-pulse 4s ease-in-out infinite;
+    }
+    @keyframes mnt-pulse {
+      0%,100% { opacity:.16; transform:scale(1);    }
+      50%      { opacity:.24; transform:scale(1.05); }
+    }
+    .mnt-logo {
+      display: block;
+      height: 150px;
+      width: auto;
+      max-width: 320px;
+      filter: drop-shadow(0 4px 16px rgba(26,42,94,.18));
+      margin-bottom: 40px;
+    }
+    .mnt-card {
+      background: rgba(255,255,255,.84);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(26,42,94,.10);
+      border-radius: 20px;
+      box-shadow: 0 8px 40px rgba(26,42,94,.10), 0 1px 0 rgba(255,255,255,.9) inset;
+      max-width: 540px;
+      width: 100%;
+      padding: 48px 40px 40px;
+      text-align: center;
+    }
+    .mnt-card::before {
+      content: '';
+      display: block;
+      width: 56px;
+      height: 3px;
+      background: linear-gradient(to right, #c9a84c, #e0c070, #c9a84c);
+      border-radius: 2px;
+      margin: 0 auto 24px;
+    }
+    .mnt-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(74,179,232,.12);
+      border: 1px solid rgba(74,179,232,.30);
+      color: #2196c4;
+      font-family: 'Raleway', sans-serif;
+      font-size: .70rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 999px;
+      margin-bottom: 22px;
+    }
+    .mnt-dot {
+      width: 7px; height: 7px;
+      background: #4ab3e8;
+      border-radius: 50%;
+      animation: mnt-blink 1.4s ease-in-out infinite;
+    }
+    @keyframes mnt-blink {
+      0%,100% { opacity:1;   }
+      50%      { opacity:.2; }
+    }
+    .mnt-card h1 {
+      font-family: 'Raleway', sans-serif;
+      font-size: clamp(1.5rem, 5vw, 2rem);
+      font-weight: 800;
+      color: #1a2a5e;
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+    .mnt-sub {
+      font-size: .94rem;
+      color: #4a5a7a;
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+    .mnt-divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 24px 0;
+      color: rgba(26,42,94,.30);
+      font-size: .74rem;
+    }
+    .mnt-divider::before, .mnt-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(26,42,94,.12);
+    }
+    .mnt-contacts {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+    .mnt-contact {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .84rem;
+      color: #4a5a7a;
+      text-decoration: none;
+      padding: 8px 18px;
+      border-radius: 10px;
+      border: 1px solid rgba(26,42,94,.10);
+      background: rgba(255,255,255,.7);
+      transition: border-color .2s, color .2s, background .2s;
+    }
+    .mnt-contact:hover {
+      border-color: #4ab3e8;
+      color: #2196c4;
+      background: rgba(74,179,232,.07);
+    }
+    .mnt-footer {
+      margin-top: 36px;
+      font-size: .76rem;
+      color: rgba(26,42,94,.40);
+      text-align: center;
+    }
+    @media (max-width: 480px) {
+      .mnt-card { padding: 32px 20px 24px; }
+      .mnt-logo { height: 110px; margin-bottom: 28px; }
+    }
   </style>
 </head>
 <body>
+
+  <!-- ══ MANTENIMIENTO — eliminar este bloque cuando termine el mantenimiento ══ -->
+  <div id="maintenance-overlay">
+
+    <div class="mnt-star" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" width="110" height="110" viewBox="0 0 100 100">
+        <polygon points="50,4 93,76 7,76"  fill="none" stroke="#1a2a5e" stroke-width="5" stroke-linejoin="round"/>
+        <polygon points="50,96 7,24 93,24" fill="none" stroke="#1a2a5e" stroke-width="5" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <img
+      class="mnt-logo"
+      src="logo-uib-color.png"
+      alt="Unión Israelita de Beneficencia"
+      onerror="this.style.display='none'"
+    />
+
+    <div class="mnt-card">
+      <span class="mnt-badge"><span class="mnt-dot"></span> En mantenimiento</span>
+      <h1>Sitio en actualización</h1>
+      <p class="mnt-sub">
+        Estamos trabajando para mejorar nuestra presencia en línea.<br/>
+        Volveremos en breve con novedades para nuestra comunidad.
+      </p>
+      <div class="mnt-divider">Mientras tanto, contáctanos</div>
+      <div class="mnt-contacts">
+        <a class="mnt-contact" href="tel:+576045609754">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6.06 6.06l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          (+57) 604 560 9754
+        </a>
+        <a class="mnt-contact" href="mailto:info@uibmedellin.org">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="20" height="16" x="2" y="4" rx="2"/>
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+          </svg>
+          info@uibmedellin.org
+        </a>
+      </div>
+    </div>
+
+    <p class="mnt-footer">© 2026 Unión Israelita de Beneficencia &mdash; Medellín, Colombia</p>
+
+  </div>
+  <!-- ══ FIN MANTENIMIENTO ══ -->
 
   <!-- ══ MAIN ══ -->
   <main class="main">
